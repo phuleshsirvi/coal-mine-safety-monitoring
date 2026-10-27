@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Phulesh Sirvi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -76.2, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -227.7, "left": -98.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -498.9,
+      "left": 513,
+      "attrs": { "temperature": "14.9", "humidity": "68.5" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -147.4,
+      "left": 316.8,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -445.2, "left": -73, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -445.2,
+      "left": -25,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -487.2,
+      "left": 59.4,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 17.2, "left": 307.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:5V", "gas1:VCC", "red", [ "v28.7", "h-197.8", "v-259.2", "h192" ] ],
+    [ "uno:5V", "dht1:VCC", "red", [ "v28.7", "h205.4" ] ],
+    [ "gas1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "dht1:GND", "uno:GND.1", "black", [ "v67.2", "h-201.6" ] ],
+    [ "gas1:AOUT", "uno:A0", "green", [ "h19.2", "v67.2", "h-153.6", "v240", "h240" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v48", "h-67.1" ] ],
+    [ "led2:A", "uno:5", "green", [ "v9.6", "h249.6" ] ],
+    [ "led1:A", "uno:6", "green", [ "v19.2", "h278.4" ] ],
+    [ "led2:C", "uno:GND.1", "green", [ "v124.8", "h154" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v115.2", "h29.2" ] ],
+    [ "bz1:2", "uno:7", "green", [ "v9.6", "h86" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v38.4", "h67.2" ] ],
+    [ "servo1:V+", "uno:5V", "red", [ "h-9.6", "v259.3", "h-201.6" ] ],
+    [ "servo1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "servo1:PWM", "uno:8", "green", [ "h0" ] ],
+    [ "btn1:2.r", "uno:4", "green", [ "h0" ] ],
+    [ "btn1:1.r", "uno:GND.1", "green", [ "v38.4", "h-345.4", "v172.8", "h220.8" ] ]
+  ],
+  "dependencies": {}
+}
